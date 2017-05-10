@@ -1,44 +1,57 @@
 // Business Logic
-function Roll(roll) {
-  this.roll = roll;
-}
 
-Roll.prototype.newRoll = function(min, max) {
+function Game(total) {
+  this.tally = 0; // []
+  this.total = total;
+}
+// getting a new random number and saving it to my tally
+
+Game.prototype.newRoll = function() {
   var min = 1;
   var max = 6;
-  return Math.floor(Math.random()*(max-min+1)+min);
+  var random = Math.floor(Math.random()*(max-min+1)+min);
+  this.tally = this.tally + random;
+  return random;
 }
 
-// PlayerOne.prototype.roll = function(min, max) {
-//   return Math.floor(Math.random()*(max-min+1)+min);
-// }
+Game.prototype.newTotal = function() {
+  this.total = this.total + this.tally; //this is what we're trying to fix
+}
 
-// function PlayerOne(roll, roundTotal, gameTotal) {
-//   this.roll = roll
-//   this.gameTotal = gameTotal;
-//   this.roundTotal = roundTotal;
-// }
 // UI Logic
 
 $(function() {
+  var playerOneGame = new Game();
+  var total = 0;
+
   $("button.playerOneNumberGen").click(function(event) {
     event.preventDefault();
 
     var result =$(".playerOneNumberGen");
+    var roll = playerOneGame.newRoll()
 
-    var rolls = new Roll(result);
-
-    $(".playerOneRoundTally").text(rolls.newRoll);
+    $(".playerOneCurrentRoll").text(roll);
+    $(".playerOneRoundTally").text(playerOneGame.tally);
 
   });
-  $("button.playerTwoNumberGen").click(function(event) {
+
+  $("button.playerOneHold").click(function(event) {
     event.preventDefault();
 
-    var result =$(".playerTwoNumberGen");
-
-    var rolls = new Roll(result);
-
-    $(".playerTwoRoundTally").text(rolls.newRoll);
-
+    var playerOneTotal = playerOneGame.newTotal()
+    console.log(playerOneTotal);
   });
 });
+
+// $("button.playerTwoNumberGen").click(function(event) {
+//   event.preventDefault();
+//
+//   var result =$(".playerTwoNumberGen");
+//
+//   var roll = newGame.newRoll()
+//
+//   $(".playerTwoRoundTally").text(roll);
+//
+//   console.log(newGame.tally);
+//
+// });

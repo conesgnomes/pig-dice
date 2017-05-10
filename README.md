@@ -12,30 +12,31 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * program will have a random number generator
   * example input: click generator button
   * example output: generates random number
-* program will show generated number and display die of number.
-  example input: clicks generate number
-  example output: shows number generated and die with number.
-* program will tally the generated numbers of each player until they decide to hold.
-  * example input: generated numbers
-  * example output: stored numbers
-* program totals players tally'd numbers.
+* program will show generated number
+  * example input: clicks generate number
+  * example output: shows number generated
+* program will display die of generated number.
+  * example input: clicks generate number
+  * example output: show die img with number.
+* program totals players tallied numbers.
   * example input: 2, 4, 5 =
   * example output: total = 11
-* program will add total'd numbers to each players game total.
+* program will add totaled numbers to each players game total when they click "hold".
   * example input: 11
   * example output: 11 + 5 + 9 (totals from previous rounds)
-* when player decides to hold generated numbers, program will move to the next player.
-  * example input: clicks "hold"
-  * example output: program moves to next player
-* program will pick a winner that first reaches a total of 100
-  * example input: 3 + 5 + etc. = 100
-  * example output: Big winner
-* program will clear tally'd numbers per round if player generates 1
+* program will clear tallied numbers per round if player generates 1
   * example input: 4 + 2 + 1 =
-  * example output: tally'd number = zero for that round
+  * example output: tallied number = zero for that round
 * program will end that players turn if generates 1
   * example input: 4 + 2 + 1 =
   * example output: next players turn
+* program will clear current role and round tally when player either clicks "hold" or they generate a 1
+  example input: click "hold" or generate 1
+  example output: current role and round tally clears
+* program will pick a winner that first reaches a total of 100
+  * example input: 3 + 5 + etc. = 100
+  * example output: Big winner
+
 ## Setup/Installation Requirements
 
 * _This is a great place_
