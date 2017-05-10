@@ -1,7 +1,7 @@
 // Business Logic
 
-function Game(total) {
-  this.tally = 0; // []
+function Game(tally, total) {
+  this.tally = tally; // []
   this.total = total;
 }
 // getting a new random number and saving it to my tally
@@ -15,14 +15,16 @@ Game.prototype.newRoll = function() {
 }
 
 Game.prototype.newTotal = function() {
-  this.total = this.total + this.tally; //this is what we're trying to fix
+  this.total += this.tally;
+  return this.total; //NEVER FORGET TO RETURN!!!
 }
 
 // UI Logic
 
 $(function() {
-  var playerOneGame = new Game();
+  var tally = 0;
   var total = 0;
+  var playerOneGame = new Game(tally, total);
 
   $("button.playerOneNumberGen").click(function(event) {
     event.preventDefault();
