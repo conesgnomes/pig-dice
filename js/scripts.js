@@ -9,9 +9,14 @@ function Game(tally, total) {
 Game.prototype.newRoll = function() {
   var min = 1;
   var max = 6;
-  var random = Math.floor(Math.random()*(max-min+1)+min);
-  this.tally = this.tally + random;
-  return random;
+  var currentRoll = Math.floor(Math.random()*(max-min+1)+min);
+  if (currentRoll === 1) { // if current roll is a 1, tally zeros out
+    this.tally = 0;
+    alert("Yo! You just lost this round's points -- next player's turn.")
+  } else {
+    this.tally = this.tally + currentRoll;
+  }
+  return currentRoll;
 }
 
 Game.prototype.newTotal = function() {
@@ -19,41 +24,40 @@ Game.prototype.newTotal = function() {
   return this.total; //NEVER FORGET TO RETURN!!!
 }
 
+Game.prototype.holdReset = function() {
+  this.tally = 0;
+  return this.tally;
+  }
+
 // UI Logic
 
 $(function() {
   var tally = 0;
   var total = 0;
+  // var currentRoll;
   var playerOneGame = new Game(tally, total);
 
   $("button.playerOneNumberGen").click(function(event) {
     event.preventDefault();
 
-    var result =$(".playerOneNumberGen");
+    var result = $(".playerOneNumberGen");
     var roll = playerOneGame.newRoll()
 
-    if (roll === 1){
-      $(".playerOneCurrentRoll").text("");
-      $(".playerOneRoundTally").text("");
-    } else if (roll !== 1) {
-      $(".playerOneCurrentRoll").text(roll);
-      $(".playerOneRoundTally").text(playerOneGame.tally);
-    }
-
-    //
-    // $(".playerOneCurrentRoll").text(roll);
-
-
-
+    $(".playerOneCurrentRoll").text(roll);
+    $(".playerOneRoundTally").text(playerOneGame.tally);
 
   });
 
   $("button.playerOneHold").click(function(event) {
     event.preventDefault();
 
-    var playerOneTotal = playerOneGame.newTotal()
+    var playerOneTotal = playerOneGame.newTotal();
+    var hold = playerOneGame.holdReset();
+
+    $(".playerOneCurrentRoll").empty();
+    $(".playerOneRoundTally").text(hold);
     $(".playerOneTotal").text(playerOneTotal);
-    // console.log(playerOneTotal);
+    alert("Check out your new total! It's now the next player's turn.");
   });
 });
 
