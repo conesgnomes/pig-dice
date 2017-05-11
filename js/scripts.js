@@ -20,8 +20,8 @@ Game.prototype.newRoll = function() {
 }
 
 Game.prototype.newTotal = function() {
-  this.total += this.tally;
-  return this.total; //NEVER FORGET TO RETURN!!!
+  this.total += this.tally
+  return this.total;
 }
 
 Game.prototype.holdReset = function() {
@@ -41,12 +41,16 @@ $(function() {
     event.preventDefault();
 
     var result = $(".playerOneNumberGen");
-    var roll = playerOneGame.newRoll()
+    var roll = playerOneGame.newRoll();
+    // var playerOneTotal = playerOneGame.newTotal();
 
-
-    $(".playerOneCurrentRoll").text(roll);
-    $(".playerOneRoundTally").text(playerOneGame.tally);
-
+    if (roll === 1) {
+      $(".playerOneCurrentRoll").empty();
+      $(".playerOneRoundTally").empty();
+    } else {
+      $(".playerOneCurrentRoll").text(roll);
+      $(".playerOneRoundTally").text(playerOneGame.tally);
+    }
   });
 
   $("button.playerOneHold").click(function(event) {
@@ -55,23 +59,16 @@ $(function() {
     var playerOneTotal = playerOneGame.newTotal();
     var hold = playerOneGame.holdReset();
 
-    $(".playerOneCurrentRoll").empty();
-    $(".playerOneRoundTally").empty();
-    $(".playerOneTotal").text(playerOneTotal);
-    alert("Check out your new total! It's now the next player's turn.");
+    if (playerOneTotal >= 100) {
+      alert("Big winner!! You won Pig Dice!");
+      location.reload();
+    } else {
+      $(".playerOneCurrentRoll").empty();
+      $(".playerOneRoundTally").empty();
+      $(".playerOneTotal").text(playerOneTotal);
+      alert("Check out your new total! It's now the next player's turn.");
+    }
+
   });
 
 });
-
-// $("button.playerTwoNumberGen").click(function(event) {
-//   event.preventDefault();
-//
-//   var result =$(".playerTwoNumberGen");
-//
-//   var roll = newGame.newRoll()
-//
-//   $(".playerTwoRoundTally").text(roll);
-//
-//   console.log(newGame.tally);
-//
-// });

@@ -30,7 +30,7 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * program will end that players turn if generates 1
   * example input: 4 + 2 + 1 =
   * example output: next players turn
-* program will clear current role and round tally when player either clicks "hold" or they generate a 1
+* program will clear current roll and round tally when player either clicks "hold" or they generate a 1
   example input: click "hold" or generate 1
   example output: current role and round tally clears
 * program will pick a winner that first reaches a total of 100
