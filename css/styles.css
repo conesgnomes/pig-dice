@@ -27,6 +27,7 @@ body {
 .directions {
   font-family: 'Baloo', cursive;
   font-size: 30px;
+  color: #d9534f;
 }
 
 .well {
@@ -35,13 +36,14 @@ body {
   background-color: rgba(255, 230, 230, .8);
   padding: 10px;
   margin: 20px 0;
+  color: #990000;
 }
 
 .game {
   background: white;
   border-radius: 5px;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   background-color: rgba(255, 230, 230, .8);
 }
 
@@ -67,4 +69,21 @@ button {
 
 h2 {
   margin-left: 10px;
+}
+
+.totals {
+  font-family: 'Baloo', cursive;
+  color: #d9534f;
+}
+
+.numbers {
+  font-family: 'Baloo', cursive;
+  color: #d9534f;
+  font-size: 200px;
+  margin: 0 100px;
+}
+
+.tallyHeader, .rollHeader {
+  font-family: 'Slabo 27px', serif;
+  color: #990000;
 }
