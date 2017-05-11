@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Slabo+27px" rel="stylesheet">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8" type="text/css">
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Pig-Dice</title>
+    <title>Pig-Dice Game</title>
   </head>
   <body>
     <div class="container">
-      <h1>Pig Dice</h1>
-      <div class="row">
-        <div class="col-md-3">
-          <button type="button" class="playerOneNumberGen" name="playerOneNumberGen">Roll</button>
-          <button class="playerOneHold" type="button" name="playerOneHold">Hold</button>
-        </div>
-        <div class="col-md-3">
-          <h3 class="tallyHeader">Current Roll:</h3>
-          <div class="playerOneCurrentRoll"></div>
-          <h3 class="tallyHeader">Round Tally:</h3>
-          <div class="playerOneRoundTally"></div>
-        </div>
-        <div class="col-md-3">
-          <h3 class="roleHeader">Current Roll:</h3>
-          <div class="playerTwoCurrentRoll"></div>
-          <h3 class="tallyHeader">Round Tally:</h3>
-          <div class="playerTwoRoundTally"></div>
-        </div>
-        <div class="col-md-3">
-          <button type="button" class="playerTwoNumberGen" name="playerTwoNumberGen">Roll</button>
-          <button class="playerTwoHold" type="button" name="playerTwoHold">Hold</button>
-        </div>
+      <div class="jumbotron">
+        <h1>Pig Dice Game</h1>
+        <h4>Gamble To Your Heart's Content</h4>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Player One Total Score:</h2>
-          <div class="playerOneTotal"></div>
+      <div class="well well-sm">
+        <span class="directions">Directions</span><br>
+        Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
+        If the player rolls a 1, they score nothing and it becomes the next player's turn.
+        If the player rolls any other number, it is added to their turn total and the player's turn continues.
+        If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.
+        The first player to score 100 or more points wins. Enjoy the pig dice game below!
+      </div>
+      <div class="game">
+        <div class="row">
+          <div class="col-md-3">
+            <button type="button" class="playerOneNumberGen btn btn-danger" name="playerOneNumberGen">Roll</button>
+            <button class="playerOneHold btn btn-warning" type="button" name="playerOneHold">Hold</button>
+          </div>
+          <div class="col-md-3">
+            <h3 class="tallyHeader">Current Roll:</h3>
+            <div class="playerOneCurrentRoll"></div>
+            <h3 class="tallyHeader">Round Tally:</h3>
+            <div class="playerOneRoundTally"></div>
+          </div>
+          <div class="col-md-3">
+            <h3 class="roleHeader">Current Roll:</h3>
+            <div class="playerTwoCurrentRoll"></div>
+            <h3 class="tallyHeader">Round Tally:</h3>
+            <div class="playerTwoRoundTally"></div>
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="playerTwoNumberGen btn btn-danger" name="playerTwoNumberGen">Roll</button>
+            <button class="playerTwoHold btn btn-warning" type="button" name="playerTwoHold">Hold</button>
+          </div>
         </div>
-        <div class="col-md-4">
-          <div class="dieImage"></div>
-        </div>
-        <div class="col-md-4">
-          <h2>Player Two Total Score:</h2>
-          <div class="playerTwoTotal"></div>
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Player One Total Score:</h2>
+            <div class="playerOneTotal"></div>
+          </div>
+          <div class="col-md-4">
+            <div class="dieImage"></div>
+          </div>
+          <div class="col-md-4">
+            <h2>Player Two Total Score:</h2>
+            <div class="playerTwoTotal"></div>
+          </div>
         </div>
       </div>
     </div>

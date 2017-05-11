@@ -1,0 +1,70 @@
+
+body {
+  background-image: url("../img/bacon.jpg");
+  background-repeat: repeat;
+}
+
+.jumbotron {
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+  background-color: #ffe6e6;
+  background-image: url("../img/dice.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #d9534f;
+}
+
+.jumbotron h1 {
+  font-size: 85px;
+  font-family: 'Baloo', cursive;
+}
+
+.jumbotron h4 {
+  font-size: 35px;
+  color: #990000;
+}
+
+.directions {
+  font-family: 'Baloo', cursive;
+  font-size: 30px;
+}
+
+.well {
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(255, 230, 230, .8);
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.game {
+  background: white;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  background-color: rgba(255, 230, 230, .8);
+}
+
+.playerTwoNumberGen {
+  float: right;
+}
+
+.playerTwoHold {
+  float: right;
+}
+
+.playerOneNumberGen {
+  float: left;
+}
+
+.playerOneHold {
+  float: left;
+}
+
+button {
+  margin: 10px;
+}
+
+h2 {
+  margin-left: 10px;
+}

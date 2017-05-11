@@ -36,6 +36,7 @@ $(function() {
   var total = 0;
   // var currentRoll;
   var playerOneGame = new Game(tally, total);
+  var playerTwoGame = new Game(tally, total);
 
   $("button.playerOneNumberGen").click(function(event) {
     event.preventDefault();
@@ -68,7 +69,39 @@ $(function() {
       $(".playerOneTotal").text(playerOneTotal);
       alert("Check out your new total! It's now the next player's turn.");
     }
+  });
 
+  $("button.playerTwoNumberGen").click(function(event) {
+    event.preventDefault();
+
+    var result = $(".playerTwoNumberGen");
+    var roll = playerTwoGame.newRoll();
+    // var playerOneTotal = playerOneGame.newTotal();
+
+    if (roll === 1) {
+      $(".playerTwoCurrentRoll").empty();
+      $(".playerTwoRoundTally").empty();
+    } else {
+      $(".playerTwoCurrentRoll").text(roll);
+      $(".playerTwoRoundTally").text(playerTwoGame.tally);
+    }
+  });
+
+  $("button.playerTwoHold").click(function(event) {
+    event.preventDefault();
+
+    var playerTwoTotal = playerTwoGame.newTotal();
+    var hold = playerTwoGame.holdReset();
+
+    if (playerTwoTotal >= 100) {
+      alert("Big winner!! You won Pig Dice!");
+      location.reload();
+    } else {
+      $(".playerTwoCurrentRoll").empty();
+      $(".playerTwoRoundTally").empty();
+      $(".playerTwoTotal").text(playerTwoTotal);
+      alert("Check out your new total! It's now the next player's turn.");
+    }
   });
 
 });
