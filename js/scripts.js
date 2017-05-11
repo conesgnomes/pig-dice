@@ -43,6 +43,7 @@ $(function() {
     var result = $(".playerOneNumberGen");
     var roll = playerOneGame.newRoll()
 
+
     $(".playerOneCurrentRoll").text(roll);
     $(".playerOneRoundTally").text(playerOneGame.tally);
 
@@ -55,10 +56,11 @@ $(function() {
     var hold = playerOneGame.holdReset();
 
     $(".playerOneCurrentRoll").empty();
-    $(".playerOneRoundTally").text(hold);
+    $(".playerOneRoundTally").empty();
     $(".playerOneTotal").text(playerOneTotal);
     alert("Check out your new total! It's now the next player's turn.");
   });
+
 });
 
 // $("button.playerTwoNumberGen").click(function(event) {
