@@ -32,8 +32,19 @@ $(function() {
     var result =$(".playerOneNumberGen");
     var roll = playerOneGame.newRoll()
 
-    $(".playerOneCurrentRoll").text(roll);
-    $(".playerOneRoundTally").text(playerOneGame.tally);
+    if (roll === 1){
+      $(".playerOneCurrentRoll").text("");
+      $(".playerOneRoundTally").text("");
+    } else if (roll !== 1) {
+      $(".playerOneCurrentRoll").text(roll);
+      $(".playerOneRoundTally").text(playerOneGame.tally);
+    }
+
+    //
+    // $(".playerOneCurrentRoll").text(roll);
+
+
+
 
   });
 
@@ -41,7 +52,8 @@ $(function() {
     event.preventDefault();
 
     var playerOneTotal = playerOneGame.newTotal()
-    console.log(playerOneTotal);
+    $(".playerOneTotal").text(playerOneTotal);
+    // console.log(playerOneTotal);
   });
 });
 
